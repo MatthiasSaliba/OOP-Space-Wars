@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class GameData : MonoBehaviour
 {
     private static Vector3 _mousePosition;
-    private static float _padding = 0f;
+    private static float _padding = 2f;
     
     public static Vector3 MousePosition
     {

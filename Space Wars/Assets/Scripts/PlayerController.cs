@@ -6,11 +6,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] GameObject laser1prefab;
+    [SerializeField] GameObject laser2prefab;
     LaserFiring _firingInstance;
 
     [SerializeField] private float movementSpeed = 2f;
     private Vector2 movementDirection;
     private Rigidbody2D rb;
+
+    [SerializeField] private float laserFiringPeriod1;
+    [SerializeField] private float laserFiringPeriod2;
+    Coroutine myFiringCoroutine1, myFiringCoroutine2;
     
     // Start is called before the first frame update
     void Start()
@@ -26,15 +31,57 @@ public class PlayerController : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0)) 
         {
-            _firingInstance.FireLaser(laser1prefab);
+            if (myFiringCoroutine1 == null)
+            {
+                myFiringCoroutine1 = StartCoroutine(fireContinuously(laser1prefab));
+            }
+        }
+        
+        if (Input.GetMouseButtonUp(0))
+        {
+            StopCoroutine(myFiringCoroutine1);
+            myFiringCoroutine1 = null;
+        }
+        
+        if (Input.GetMouseButtonDown(1))
+        {
+            _firingInstance.FireLaser(laser2prefab);
+            if (myFiringCoroutine2 == null) myFiringCoroutine2 = StartCoroutine(specialFire(laser2prefab));
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            StopCoroutine(myFiringCoroutine2);
+            myFiringCoroutine2 = null;
         }
         
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        Vector3 playerPos = transform.position;
+        playerPos.x = Mathf.Clamp(this.transform.position.x, GameData.XMin, GameData.XMax);
+        playerPos.y = Mathf.Clamp(this.transform.position.y, GameData.YMin, GameData.YMax);
+        transform.position = playerPos;
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = movementDirection * movementSpeed;
+        rb.velocity = movementDirection * movementSpeed * Time.fixedDeltaTime;
+    }
+    
+    IEnumerator fireContinuously(GameObject mybulletPrefab)
+    {
+        while (true)
+        {
+            _firingInstance.FireLaser(mybulletPrefab);
+            yield return new WaitForSeconds(laserFiringPeriod1);
+        }
+    }
+    
+    IEnumerator specialFire(GameObject mybulletPrefab)
+    {
+        while (true)
+        {
+            _firingInstance.FireLaser(mybulletPrefab);
+            yield return new WaitForSeconds(laserFiringPeriod2);
+        }
     }
 
     void PointAtMouse()
