@@ -5,9 +5,9 @@ using UnityEngine;
 public class SpecialLaser : DefaultLaser
 {
     // Start is called before the first frame update
-    protected override void Start()
+    protected override void OnEnable()
     {
-        base.Start();
+        base.OnEnable();
         SpecialFire();
         
     }

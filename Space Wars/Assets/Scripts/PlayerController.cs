@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float laserFiringPeriod1;
     [SerializeField] private float laserFiringPeriod2;
     Coroutine myFiringCoroutine1, myFiringCoroutine2;
+
+    public ObjectPooling bullet1pool, bullet2pool;
     
     // Start is called before the first frame update
     void Start()
@@ -33,7 +35,7 @@ public class PlayerController : MonoBehaviour
         {
             if (myFiringCoroutine1 == null)
             {
-                myFiringCoroutine1 = StartCoroutine(fireContinuously(laser1prefab));
+                myFiringCoroutine1 = StartCoroutine(fireContinuously(bullet1pool));
             }
         }
         
@@ -46,7 +48,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             _firingInstance.FireLaser(laser2prefab);
-            if (myFiringCoroutine2 == null) myFiringCoroutine2 = StartCoroutine(specialFire(laser2prefab));
+            if (myFiringCoroutine2 == null) myFiringCoroutine2 = StartCoroutine(specialFire(bullet2pool));
         }
         if (Input.GetMouseButtonUp(1))
         {
@@ -66,20 +68,22 @@ public class PlayerController : MonoBehaviour
         rb.velocity = movementDirection * movementSpeed * Time.fixedDeltaTime;
     }
     
-    IEnumerator fireContinuously(GameObject mybulletPrefab)
+    IEnumerator fireContinuously(ObjectPooling myObjectPool)
     {
         while (true)
         {
-            _firingInstance.FireLaser(mybulletPrefab);
+            GameObject mybullet = myObjectPool.GetPooledObject();
+            _firingInstance.FireLaser(mybullet);
             yield return new WaitForSeconds(laserFiringPeriod1);
         }
     }
     
-    IEnumerator specialFire(GameObject mybulletPrefab)
+    IEnumerator specialFire(ObjectPooling myObjectPool)
     {
         while (true)
         {
-            _firingInstance.FireLaser(mybulletPrefab);
+            GameObject mybullet = myObjectPool.GetPooledObject();
+            _firingInstance.FireLaser(mybullet);
             yield return new WaitForSeconds(laserFiringPeriod2);
         }
     }

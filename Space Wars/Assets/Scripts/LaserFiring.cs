@@ -8,7 +8,9 @@ public class LaserFiring : MonoBehaviour
     {
         if (myLaser != null)
         {
-            Instantiate(myLaser, this.transform.position, this.transform.rotation);
+            myLaser.transform.position = this.transform.position;
+            myLaser.transform.rotation = this.transform.rotation;
+            myLaser.SetActive(true);
         }
     }
 }

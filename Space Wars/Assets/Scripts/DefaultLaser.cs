@@ -14,14 +14,14 @@ public class DefaultLaser : MonoBehaviour
         rb.gravityScale = 0;
     }
     // Start is called before the first frame update
-    protected virtual void Start()
+    protected virtual void OnEnable()
     {     
         GetComponent<Rigidbody2D>().velocity = transform.up * speed;
     }
     
     private void OnBecameInvisible()
     {
-        Destroy(this.gameObject);
+        this.gameObject.SetActive(false);
     }
     
 }
