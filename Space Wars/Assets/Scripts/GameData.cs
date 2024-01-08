@@ -7,6 +7,15 @@ public abstract class GameData : MonoBehaviour
     private static Vector3 _mousePosition;
     private static float _padding = 2f;
     
+    private static int _playerhealth = 10;
+
+    public static int PlayerHealth
+    { 
+        get { return _playerhealth; } 
+        set { _playerhealth = value; }
+    
+    }
+    
     public static Vector3 MousePosition
     {
         get { return GetMousePos(); }

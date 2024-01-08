@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject laser2prefab;
     LaserFiring _firingInstance;
 
-    [SerializeField] private float movementSpeed = 2f;
+    [SerializeField] private float movementSpeed;
     private Vector2 movementDirection;
     private Rigidbody2D rb;
 
