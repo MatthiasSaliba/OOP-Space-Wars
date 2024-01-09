@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff3776f1c368944a93a720afc324f9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start_hitpoints: 0
+  hitpoints: 0
   start_strength: 0
   start_speed: 0
 --- !u!50 &7919086398988456904
@@ -158,7 +158,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
