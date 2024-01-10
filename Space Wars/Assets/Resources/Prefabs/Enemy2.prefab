@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -8793244435180397395}
   - component: {fileID: 7919086398988456904}
   - component: {fileID: 6059983890931364375}
+  - component: {fileID: -3044253407376024999}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Untagged
@@ -102,6 +103,7 @@ MonoBehaviour:
   hitpoints: 0
   start_strength: 0
   start_speed: 0
+  _strength: 0
 --- !u!50 &7919086398988456904
 Rigidbody2D:
   serializedVersion: 4
@@ -190,3 +192,15 @@ PolygonCollider2D:
       - {x: 0.962963, y: -0.22222222}
       - {x: 0.962963, y: 0.2962963}
   m_UseDelaunayMesh: 0
+--- !u!114 &-3044253407376024999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197942876354105602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58689678eb8ef646a3c4e0263899c83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

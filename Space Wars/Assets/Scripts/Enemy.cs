@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public interface TakingDamage
+{
+    public void ApplyDamage(int hitpoints);
+}
+
 public class Enemy : MonoBehaviour
 {
     public int hitpoints;
     public int start_strength;
     public float start_speed;
     
-    private int _strength;
+    public int _strength;
     
     void Start()
     {
@@ -33,6 +38,7 @@ public class Enemy : MonoBehaviour
                 Debug.Log("Score: " + GameData.Score.ToString());
                 Destroy(this.gameObject);
             }
+            GetComponent<TakingDamage>().ApplyDamage(hitpoints);
         }
     }
 }
