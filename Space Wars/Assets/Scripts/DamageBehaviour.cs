@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class DamageBehaviour : MonoBehaviour, TakingDamage
 {
-    public void ApplyDamage(int  hitpoints)
+    public void ApplyDamage(int hitpoints)
     {
         Enemy _enemy = GetComponent<Enemy>();
         _enemy._strength--;
         StartCoroutine(ApplyDamageEffect());
         if (_enemy._strength <= 0)
         {
-            GameData.Score += hitpoints;
-            Debug.Log("Score: " + GameData.Score.ToString());
+            GameManager.Instance.OnEnemyDie();
             Destroy(this.gameObject);
         }
     }

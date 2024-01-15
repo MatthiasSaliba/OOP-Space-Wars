@@ -128,7 +128,7 @@ MonoBehaviour:
   laser1prefab: {fileID: 8824938606172715264, guid: d5f82b863db384c499083252cf75fb21, type: 3}
   laser2prefab: {fileID: 3792019286652850854, guid: 40137e47abd90e94794bb8e4d3b211c2, type: 3}
   movementSpeed: 10
-  laserFiringPeriod1: 0
-  laserFiringPeriod2: 0
+  laserFiringPeriod1: 0.2
+  laserFiringPeriod2: 1
   bullet1pool: {fileID: 0}
   bullet2pool: {fileID: 0}
