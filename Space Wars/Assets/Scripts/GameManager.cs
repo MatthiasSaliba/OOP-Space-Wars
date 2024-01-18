@@ -30,6 +30,20 @@ public class GameManager : Singleton<GameManager>
         GameData.Score++;
         playerScoreText.text = "Score: " + GameData.Score.ToString();
         mySaveLoadManager.SaveData();
+        if (SceneManager.GetActiveScene().name.Contains("Level1"))
+        {
+            if (GameData.Score >= 30)
+            {
+                mySaveLoadManager.DeleteFile();
+                SceneManager.LoadScene("Level2");
+            }
+        } else if (SceneManager.GetActiveScene().name.Contains("Level2"))
+        {
+            if (GameData.Score >= 40)
+            {
+                SceneManager.LoadScene("WelcomeScene");
+            }
+        }
     }
 
     public void PlayerDamage()
