@@ -297,7 +297,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Reach 40 Score to proceed to Win the game
+  m_Text: Try to reach your highscore!
 --- !u!222 &213538766
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -414,6 +414,10 @@ PrefabInstance:
       propertyPath: bullet2pool
       value: 
       objectReference: {fileID: 817187089}
+    - target: {fileID: -85263420420597824, guid: 4c83aff5462f2a9409d52936fe0a30bb, type: 3}
+      propertyPath: movementSpeed
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 2586187800031172258, guid: 4c83aff5462f2a9409d52936fe0a30bb, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1046,8 +1050,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 356024068}
-  - {fileID: 1668370311}
   - {fileID: 429620461}
+  - {fileID: 1668370311}
   - {fileID: 1149684843}
   - {fileID: 817187090}
   - {fileID: 1281658088}

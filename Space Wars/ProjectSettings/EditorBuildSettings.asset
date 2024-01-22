@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/WelcomeScene.unity
     guid: 10cc85e0df30a6b4283210f7558bd2c6
   - enabled: 1
+    path: Assets/Scenes/Highscore.unity
+    guid: a9b73cfe135933f4ebb4c080b6db1ea4
+  - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1

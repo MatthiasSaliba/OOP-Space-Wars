@@ -67,7 +67,7 @@ public class PlayerController : Singleton<PlayerController>
     {
         rb.velocity = movementDirection * movementSpeed * Time.fixedDeltaTime;
     }
-    
+
     IEnumerator fireContinuously(ObjectPooling myObjectPool)
     {
         while (true)

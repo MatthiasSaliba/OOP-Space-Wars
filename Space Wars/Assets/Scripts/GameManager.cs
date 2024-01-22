@@ -34,14 +34,7 @@ public class GameManager : Singleton<GameManager>
         {
             if (GameData.Score >= 30)
             {
-                mySaveLoadManager.DeleteFile();
                 SceneManager.LoadScene("Level2");
-            }
-        } else if (SceneManager.GetActiveScene().name.Contains("Level2"))
-        {
-            if (GameData.Score >= 40)
-            {
-                SceneManager.LoadScene("WelcomeScene");
             }
         }
     }
@@ -53,7 +46,7 @@ public class GameManager : Singleton<GameManager>
         healthText.text = "Health: " + GameData.PlayerHealth.ToString();
         if (GameData.PlayerHealth <= 0)
         {
-            mySaveLoadManager.DeleteFile();
+            //mySaveLoadManager.DeleteFile();
             SceneManager.LoadScene("GameOver");
         }
     }
