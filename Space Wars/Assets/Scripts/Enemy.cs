@@ -11,7 +11,6 @@ public class Enemy : MonoBehaviour
 {
     public int hitpoints;
     public int start_strength;
-    public float start_speed;
     
     public int _strength;
     
